@@ -1,0 +1,51 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+
+	<title>Salus mea - Larmportal</title>
+
+	<link rel="stylesheet" type="text/css" href="css/index_main3.css" />
+	<link href="css/loginbox.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" type="image/png" href="alertyFavicon.png">
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA1vUw498bcppAYRAMyytc6Kr-oy1wRao&libraries=geometry"></script>
+	<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="js/alerty.js"></script>
+	<script type="text/javascript">
+	function showError(){
+		alert('Wrong User ID or password');
+	}
+	</script>
+</head>
+
+<body>
+	<div id="wrapper" style="vertical-align:center">
+		<div id="header"><img id="logo" src="brand/logo.png" class="left"></div>
+	
+		<div class="LoginContent">
+					<form id="loginForm" name="loginForm" action="javascript:checkLoginCreds('');" method="post">
+						
+						<div class="title" style="bottom: 50px; color: #B2B2B2; font-size: 13px; margin-left: 13px;">Användar ID</div>
+						<input type="text" class="LoginFormInput" name="userName" style="bottom: 70px; color: black" value=""  style="bottom: 30px; color: grey" onblur="if (this.value == '') {this.value = text1; this.style.color = 'grey';}" onfocus="if (this.value == text1) {this.value = ''; this.style.color = '#000000'; }"  />
+						
+						<div style="clear: both; height: 10px;"><span></span></div>
+						
+						<div class="title" style="bottom: 35px; color: #B2B2B2; font-size: 13px; margin-left: 13px;">Lösenord</div>
+						<input type="password" class="LoginFormInput" name="userPass"  style="bottom: 35px; color: black" style="bottom: 30px; color: grey" onKeyPress="return submitenter(document.loginForm, event);" />
+						<input type="hidden" class="LoginFormInput" id="continueUrl" name="continueUrl" />
+
+						<div class="LoginSubmitBlock">
+							<div class="LoginForgotPassBlock"></div>
+							<div class="LoginSubmitButtonBlock">
+								<a href="alarm.html" onclick="submitform(document.loginForm)" class="LoginSubmitButton" style="bottom: 0; color: black;">Logga in</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+    </div>
+</body>
+</html>

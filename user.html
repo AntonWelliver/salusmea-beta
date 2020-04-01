@@ -1,0 +1,929 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <title>Salus mea - Larmportal</title>
+
+        <link rel="stylesheet" type="text/css" href="css/index_main3.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
+        />
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript">
+            function doFilter() {
+                var text = $("#filter")
+                    .val()
+                    .toUpperCase();
+                $("form[name*='user']").hide();
+                var userids = $("span[name*='userid']");
+                userids.each(function(index) {
+                    if (
+                        $(this)
+                            .text()
+                            .toUpperCase()
+                            .includes(text)
+                    ) {
+                        $(this)
+                            .parents("form")
+                            .show();
+                    }
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <!-- Header -->
+            <div id="header">
+                <img id="logo" src="brand/salusmea-logo3.png" class="left" />
+                <div id="menu2">
+                    <ul>
+                        <li class="toolTip">
+                            <a href="alarm.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/alerts.png"
+                                /><span class="toolTipText"
+                                    >Hantering av larm</span
+                                >
+                                <p>Larm</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="user.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/users.png"
+                                /><span class="toolTipText"
+                                    >All användarinformation</span
+                                >
+                                <p>Användare</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="contact.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/contacts.png"
+                                /><span class="toolTipText"
+                                    >Spara och radera användare</span
+                                >
+                                <p>Kontakter</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="wlan.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/places.png"
+                                /><span class="toolTipText"
+                                    >Hantering av positionering</span
+                                >
+                                <p>Platser</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="archive.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/archive.png"
+                                /><span class="toolTipText"
+                                    >Arkiv över alla larm</span
+                                >
+                                <p>Arkiv</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="index.html" class="imageLink"
+                                ><img src="images/portalHeader/map.png" /><span
+                                    class="toolTipText"
+                                    >Hantering av trygghetszonerna</span
+                                >
+                                <p>Trygghetszoner</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="manual.html" class="imageLink"
+                                ><img src="images/portalHeader/help.png" /><span
+                                    class="toolTipText"
+                                    >Information och support för sidan</span
+                                >
+                                <p>Guide</p></a
+                            >
+                        </li>
+                        <li>
+                            <a href="login.html" class="imageLink"
+                                ><img src="images/portalHeader/signout.png" />
+                                <p>Logga ut</p></a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <input
+                    id="filter"
+                    onkeyup="doFilter()"
+                    placeholder="Sök..."
+                    maxlength="20"
+                    type="text"
+                />
+            </div>
+
+            <!-- Map -->
+            <div id="mapContainer">
+                <div id="satusdata">
+                    <div id="statusdataheader">
+                        <p class="left">Användare</p>
+                    </div>
+                    <div id="datadiv" class="dSettings">
+                        <form
+                            name="user"
+                            id="setUserForm5013"
+                            action=""
+                            method="post"
+                        >
+                            <button type="button" class="collapsible">
+                                <td rowspan="15" class="rownum">1</td>
+                                <td class="rowhdr">Användar ID:</td>
+                                <td class="rowinfo">
+                                    <span name="userid" value="SMUU5013"
+                                        >SMUU5013</span
+                                    >
+                                </td>
+                                <td class="rowhdr" style="margin-left: 20px">
+                                    Status:
+                                </td>
+                                <td class="rowinfo">
+                                    <img
+                                        id="online5013"
+                                        style="display:none"
+                                        src="images/userOnline.png"
+                                    />
+                                    <img
+                                        id="offline5013"
+                                        style="display:none"
+                                        src="images/userOffline.png"
+                                    />
+                                    <span id="status5013"></span>
+                                </td>
+                            </button>
+                            <table class="formContainer">
+                                <tr style="height:40px;">
+                                    <td rowspan="15" class="rownum">1</td>
+                                    <td class="rowhdr">Användar ID</td>
+                                    <td class="rowinfo">
+                                        <span name="userid">SMUU5013</span>
+                                    </td>
+                                    <td
+                                        rowspan="15"
+                                        class="rowbtn"
+                                        style="vertical-align:center;padding-bottom:3px"
+                                    >
+                                        <div class="savebtn">
+                                            <a
+                                                href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'
+                                            >
+                                                <img
+                                                    src="images/save.png"
+                                                    alt="save icon"
+                                                />
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td
+                                        rowspan="15"
+                                        class="rowbtn"
+                                        style="vertical-align:center;padding-bottom:5px"
+                                    >
+                                        <div class="savebtn">
+                                            <a
+                                                href="javascript:deleteUser(5013);"
+                                            >
+                                                <img
+                                                    src="images/delete.png"
+                                                    alt="save icon"
+                                                />
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Status</td>
+                                    <td class="rowinfo">
+                                        <img
+                                            id="online5013"
+                                            style="display:none"
+                                            src="images/userOnline.png"
+                                        />
+                                        <img
+                                            id="offline5013"
+                                            style="display:none"
+                                            src="images/userOffline.png"
+                                        />
+                                        <span id="status5013"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Batteri</td>
+                                    <td class="rowinfo">
+                                        <span id="battery5013"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Signalstyrka</td>
+                                    <td class="rowinfo">
+                                        <span id="signal5013"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">
+                                        Senast kända position
+                                    </td>
+                                    <td class="rowinfo">
+                                        <span id="lastposition5013"></span>
+                                        <input
+                                            id="showlastposition5013"
+                                            type="button"
+                                            value="Show on map"
+                                            onclick="showLastPosition(5013)"
+                                            style="width:120px;float:right;height:25px;margin-right:3px;display:none"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">
+                                        Senaste Alerty PBA-test
+                                    </td>
+                                    <td class="rowinfo">
+                                        <span id="lasttest5013"></span>
+                                        <input
+                                            id="flictest5013"
+                                            type="button"
+                                            value="Reminder"
+                                            onclick='sendFlicTest(5013,"en")'
+                                            style="width:120px;float:right;height:25px;margin-right:3px;display:none"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Version</td>
+                                    <td class="rowinfo">
+                                        <span name="version">
+                                            <span
+                                                id="version5013"
+                                                style="float:left;margin-top:4px;width:244px;"
+                                                >1.0.2</span
+                                            >
+                                        </span>
+                                        <input
+                                            id="update5013"
+                                            type="button"
+                                            value="Programuppdatering"
+                                            onclick='sendSoftwareUpdate(5013,"en")'
+                                            style="width: 150px; height: 25px;"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Namn</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="username"
+                                            type="text"
+                                            placeholder="Fullständigt namn"
+                                            value="Sara Elg"
+                                            maxlength="23"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Telefonnr</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="phonenr"
+                                            type="text"
+                                            placeholder="+46701020304"
+                                            value="0760250360"
+                                            onkeypress="return event.charCode <= 57"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Telefonnr 2</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="phone_secondary"
+                                            type="text"
+                                            placeholder="e.g. Apple Watch eSIM"
+                                            value=""
+                                            onkeypress="return event.charCode <= 57"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Email</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="email"
+                                            type="text"
+                                            placeholder="något@något.se"
+                                            value=""
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Inbjudan</td>
+                                    <td
+                                        class="rowinfo"
+                                        style="padding-top:0px;"
+                                    >
+                                        <select
+                                            style="width:404px;"
+                                            name="userlang"
+                                        >
+                                            <option value="sv"
+                                                >Skicka SMS på svenska</option
+                                            >
+                                            <option value="en"
+                                                >Skicka SMS på engelska</option
+                                            >
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Kontaktgrupp</td>
+                                    <td class="rowinfo">
+                                        <select name="alarmgroup">
+                                            <option value="0" selected
+                                                >Standard</option
+                                            >
+                                            <option value="1">Emanuel</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Behörighetskod</td>
+                                    <td class="rowinfo">
+                                        <span id="pin5013">1234</span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">SCAIP ARC</td>
+                                    <td class="rowinfo">
+                                        <span id="scaip5013"></span>
+                                    </td>
+                                </tr>
+                                <input type="hidden" name="id" value="5013" />
+                                <input
+                                    type="hidden"
+                                    name="action"
+                                    id="action5013"
+                                    value="saveuser"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="latitude"
+                                    id="latitude5013"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="longitude"
+                                    id="longitude5013"
+                                />
+                            </table>
+                        </form>
+                        <form
+                            name="user"
+                            id="setUserForm5031"
+                            action=""
+                            method="post"
+                        >
+                            <button type="button" class="collapsible">
+                                <td rowspan="15" class="rownum">2</td>
+                                <td class="rowhdr">Användar ID:</td>
+                                <td class="rowinfo">
+                                    <span name="userid" value="SMUU5031"
+                                        >SMUU5031</span
+                                    >
+                                </td>
+                                <td class="rowhdr" style="margin-left: 20px">
+                                    Status:
+                                </td>
+                                <td class="rowinfo">
+                                    <img
+                                        id="online5031"
+                                        style="display:none"
+                                        src="images/userOnline.png"
+                                    />
+                                    <img
+                                        id="offline5031"
+                                        style="display:none"
+                                        src="images/userOffline.png"
+                                    />
+                                    <span id="status5031"></span>
+                                </td>
+                            </button>
+                            <table class="formContainer">
+                                <tr style="height:40px;">
+                                    <td rowspan="15" class="rownum">1</td>
+                                    <td class="rowhdr">Användar ID</td>
+                                    <td class="rowinfo">
+                                        <span name="userid">SMUU5031</span>
+                                    </td>
+                                    <td
+                                        rowspan="15"
+                                        class="rowbtn"
+                                        style="vertical-align:center;padding-bottom:3px"
+                                    >
+                                        <div class="savebtn">
+                                            <a
+                                                href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5031"));'
+                                            >
+                                                <img
+                                                    src="images/save.png"
+                                                    alt="save icon"
+                                                />
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td
+                                        rowspan="15"
+                                        class="rowbtn"
+                                        style="vertical-align:center;padding-bottom:5px"
+                                    >
+                                        <div class="savebtn">
+                                            <a
+                                                href="javascript:deleteUser(5031);"
+                                            >
+                                                <img
+                                                    src="images/delete.png"
+                                                    alt="save icon"
+                                                />
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Status</td>
+                                    <td class="rowinfo">
+                                        <img
+                                            id="online5031"
+                                            style="display:none"
+                                            src="images/userOnline.png"
+                                        />
+                                        <img
+                                            id="offline5031"
+                                            style="display:none"
+                                            src="images/userOffline.png"
+                                        />
+                                        <span id="status5031"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Batteri</td>
+                                    <td class="rowinfo">
+                                        <span id="battery5031"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Signalstyrka</td>
+                                    <td class="rowinfo">
+                                        <span id="signal5031"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">
+                                        Senast kända position
+                                    </td>
+                                    <td class="rowinfo">
+                                        <span id="lastposition5031"></span>
+                                        <input
+                                            id="showlastposition5031"
+                                            type="button"
+                                            value="Show on map"
+                                            onclick="showLastPosition(5031)"
+                                            style="width:120px;float:right;height:25px;margin-right:3px;display:none"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">
+                                        Senaste Alerty PBA-test
+                                    </td>
+                                    <td class="rowinfo">
+                                        <span id="lasttest5031"></span>
+                                        <input
+                                            id="flictest5031"
+                                            type="button"
+                                            value="Reminder"
+                                            onclick='sendFlicTest(5031,"en")'
+                                            style="width:120px;float:right;height:25px;margin-right:3px;display:none"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Version</td>
+                                    <td class="rowinfo">
+                                        <span name="version">
+                                            <span
+                                                id="version5031"
+                                                style="float:left;margin-top:4px;width:244px;"
+                                                >1.0.2</span
+                                            >
+                                        </span>
+                                        <input
+                                            id="update5031"
+                                            type="button"
+                                            value="Programuppdatering"
+                                            onclick='sendSoftwareUpdate(5031,"en")'
+                                            style="width: 150px; height: 25px;"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Namn</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="username"
+                                            type="text"
+                                            placeholder="Fullständigt namn"
+                                            value="Anton Welliver"
+                                            maxlength="23"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Telefonnr</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="phonenr"
+                                            type="text"
+                                            placeholder="+46701020304"
+                                            value="0707301293"
+                                            onkeypress="return event.charCode <= 57"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Telefonnr 2</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="phone_secondary"
+                                            type="text"
+                                            placeholder="e.g. Apple Watch eSIM"
+                                            value=""
+                                            onkeypress="return event.charCode <= 57"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Email</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="email"
+                                            type="text"
+                                            placeholder="något@något.se"
+                                            value=""
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Inbjudan</td>
+                                    <td
+                                        class="rowinfo"
+                                        style="padding-top:0px;"
+                                    >
+                                        <select
+                                            style="width:404px;"
+                                            name="userlang"
+                                        >
+                                            <option value="sv"
+                                                >Skicka SMS på svenska</option
+                                            >
+                                            <option value="en"
+                                                >Skicka SMS på engelska</option
+                                            >
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Kontaktgrupp</td>
+                                    <td class="rowinfo">
+                                        <select name="alarmgroup">
+                                            <option value="0" selected
+                                                >Standard</option
+                                            >
+                                            <option value="1">Emanuel</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Behörighetskod</td>
+                                    <td class="rowinfo">
+                                        <span id="pin5031">1234</span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">SCAIP ARC</td>
+                                    <td class="rowinfo">
+                                        <span id="scaip5031"></span>
+                                    </td>
+                                </tr>
+                                <input type="hidden" name="id" value="5031" />
+                                <input
+                                    type="hidden"
+                                    name="action"
+                                    id="action5031"
+                                    value="saveuser"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="latitude"
+                                    id="latitude5031"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="longitude"
+                                    id="longitude5031"
+                                />
+                            </table>
+                        </form>
+                        <form
+                            name="user"
+                            id="setUserForm5020"
+                            action=""
+                            method="post"
+                        >
+                            <button type="button" class="collapsible">
+                                <td rowspan="15" class="rownum">3</td>
+                                <td class="rowhdr">Användar ID:</td>
+                                <td class="rowinfo">
+                                    <span name="userid" value="SMUU5020"
+                                        >SMUU5020</span
+                                    >
+                                </td>
+                                <td class="rowhdr" style="margin-left: 20px">
+                                    Status:
+                                </td>
+                                <td class="rowinfo">
+                                    <img
+                                        id="online5020"
+                                        style="display:none"
+                                        src="images/userOnline.png"
+                                    />
+                                    <img
+                                        id="offline5020"
+                                        style="display:none"
+                                        src="images/userOffline.png"
+                                    />
+                                    <span id="status5020"></span>
+                                </td>
+                            </button>
+                            <table class="formContainer">
+                                <tr style="height:40px;">
+                                    <td rowspan="15" class="rownum">1</td>
+                                    <td class="rowhdr">Användar ID</td>
+                                    <td class="rowinfo">
+                                        <span name="userid">SMUU5020</span>
+                                    </td>
+                                    <td
+                                        rowspan="15"
+                                        class="rowbtn"
+                                        style="vertical-align:center;padding-bottom:3px"
+                                    >
+                                        <div class="savebtn">
+                                            <a
+                                                href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5020"));'
+                                            >
+                                                <img
+                                                    src="images/save.png"
+                                                    alt="save icon"
+                                                />
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td
+                                        rowspan="15"
+                                        class="rowbtn"
+                                        style="vertical-align:center;padding-bottom:5px"
+                                    >
+                                        <div class="savebtn">
+                                            <a
+                                                href="javascript:deleteUser(5020);"
+                                            >
+                                                <img
+                                                    src="images/delete.png"
+                                                    alt="save icon"
+                                                />
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Status</td>
+                                    <td class="rowinfo">
+                                        <img
+                                            id="online5020"
+                                            style="display:none"
+                                            src="images/userOnline.png"
+                                        />
+                                        <img
+                                            id="offline5020"
+                                            style="display:none"
+                                            src="images/userOffline.png"
+                                        />
+                                        <span id="status5020"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Batteri</td>
+                                    <td class="rowinfo">
+                                        <span id="battery5020"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Signalstyrka</td>
+                                    <td class="rowinfo">
+                                        <span id="signal5020"></span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">
+                                        Senast kända position
+                                    </td>
+                                    <td class="rowinfo">
+                                        <span id="lastposition5020"></span>
+                                        <input
+                                            id="showlastposition5020"
+                                            type="button"
+                                            value="Show on map"
+                                            onclick="showLastPosition(5020)"
+                                            style="width:120px;float:right;height:25px;margin-right:3px;display:none"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">
+                                        Senaste Alerty PBA-test
+                                    </td>
+                                    <td class="rowinfo">
+                                        <span id="lasttest5020"></span>
+                                        <input
+                                            id="flictest5020"
+                                            type="button"
+                                            value="Reminder"
+                                            onclick='sendFlicTest(5020,"en")'
+                                            style="width:120px;float:right;height:25px;margin-right:3px;display:none"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Version</td>
+                                    <td class="rowinfo">
+                                        <span name="version">
+                                            <span
+                                                id="version5020"
+                                                style="float:left;margin-top:4px;width:244px;"
+                                                >1.0.2</span
+                                            >
+                                        </span>
+                                        <input
+                                            id="update5020"
+                                            type="button"
+                                            value="Programuppdatering"
+                                            onclick='sendSoftwareUpdate(5020,"en")'
+                                            style="width: 150px; height: 25px;"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Namn</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="username"
+                                            type="text"
+                                            placeholder="Fullständigt namn"
+                                            value="Emanuel Vedefors"
+                                            maxlength="23"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Telefonnr</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="phonenr"
+                                            type="text"
+                                            placeholder="+46701020304"
+                                            value="0711234567"
+                                            onkeypress="return event.charCode <= 57"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Telefonnr 2</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="phone_secondary"
+                                            type="text"
+                                            placeholder="e.g. Apple Watch eSIM"
+                                            value=""
+                                            onkeypress="return event.charCode <= 57"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Email</td>
+                                    <td class="rowinfo">
+                                        <input
+                                            name="email"
+                                            type="text"
+                                            placeholder="något@något.se"
+                                            value=""
+                                        />
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Inbjudan</td>
+                                    <td
+                                        class="rowinfo"
+                                        style="padding-top:0px;"
+                                    >
+                                        <select
+                                            style="width:404px;"
+                                            name="userlang"
+                                        >
+                                            <option value="sv"
+                                                >Skicka SMS på svenska</option
+                                            >
+                                            <option value="en"
+                                                >Skicka SMS på engelska</option
+                                            >
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Kontaktgrupp</td>
+                                    <td class="rowinfo">
+                                        <select name="alarmgroup">
+                                            <option value="0" selected
+                                                >Standard</option
+                                            >
+                                            <option value="1">Emanuel</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">Behörighetskod</td>
+                                    <td class="rowinfo">
+                                        <span id="pin5020">1234</span>
+                                    </td>
+                                </tr>
+                                <tr style="height:40px;">
+                                    <td class="rowhdr">SCAIP ARC</td>
+                                    <td class="rowinfo">
+                                        <span id="scaip5020"></span>
+                                    </td>
+                                </tr>
+                                <input type="hidden" name="id" value="5020" />
+                                <input
+                                    type="hidden"
+                                    name="action"
+                                    id="action5020"
+                                    value="saveuser"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="latitude"
+                                    id="latitude5020"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="longitude"
+                                    id="longitude5020"
+                                />
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- handle collapse with a toggle -->
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var formContainer = this.nextElementSibling;
+                    if (formContainer.style.display === "block") {
+                        formContainer.style.display = "none";
+                    } else {
+                        formContainer.style.display = "block";
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

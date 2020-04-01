@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+        http-equiv="X-UA-Compatible"
+        content="text/html"
+        ;
+        charset="UTF-8"
+        />
+        
+        <title>Salus mea - Alarm portal</title>
+        
+        <!-- <script type="module" src="./node_modules/mapbox-gl-controls/lib/ruler.js" ></script> -->
+        <link rel="stylesheet" type="text/css" href="css/startpage.css" />
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- <link href="mapbox-gl-controls/theme.css" rel="stylesheet"> -->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+            type="text/css"
+        />
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body id="wrapper">
+        <div id="header" style="padding-bottom: 90px;">
+            <img id="logo" src="brand/salusmea-logo3.png" class="left" />
+            <div id="menu">
+                <ul>
+                    <li class="toolTip">
+                        <a href="alarm.html" class="imageLink"
+                            ><img src="images/portalHeader/alerts.png" />
+                            <span class="toolTipText">Hantering av larm</span>
+                            <p>Larm</p>
+                        </a>
+                    </li>
+                    <li class="toolTip">
+                        <a href="user.html" class="imageLink"
+                            ><img src="images/portalHeader/users.png" /><span
+                                class="toolTipText"
+                                >All användarinformation</span
+                            >
+                            <p>Användare</p></a
+                        >
+                    </li>
+                    <li class="toolTip">
+                        <a href="contact.html" class="imageLink"
+                            ><img src="images/portalHeader/contacts.png" /><span
+                                class="toolTipText"
+                                >Spara och radera användare</span
+                            >
+                            <p>Kontakter</p></a
+                        >
+                    </li>
+                    <li class="toolTip">
+                        <a href="wlan.html" class="imageLink"
+                            ><img src="images/portalHeader/places.png" /><span
+                                class="toolTipText"
+                                >Hantering av positionering</span
+                            >
+                            <p>Platser</p></a
+                        >
+                    </li>
+                    <li class="toolTip">
+                        <a href="archive.html" class="imageLink"
+                            ><img src="images/portalHeader/archive.png" /><span
+                                class="toolTipText"
+                            >
+                                Arkiv över alla larm</span
+                            >
+                            <p>Arkiv</p></a
+                        >
+                    </li>
+                    <li class="toolTip">
+                        <a href="index.html" class="imageLink"
+                            ><img src="images/portalHeader/map.png" /><span
+                                class="toolTipText"
+                                >Hantering av trygghetszonerna</span
+                            >
+                            <p>Trygghetszoner</p></a
+                        >
+                    </li>
+                    <li class="toolTip">
+                        <a href="manual.html" class="imageLink"
+                            ><img src="images/portalHeader/help.png" /><span
+                                class="toolTipText"
+                                >Information och support för sidan</span
+                            >
+                            <p>Guide</p></a
+                        >
+                    </li>
+                    <li>
+                        <a href="login.html" class="imageLink"
+                            ><img src="images/portalHeader/signout.png" />
+                            <p>Logga ut</p></a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <input
+                id="filter"
+                placeholder="Sök..."
+                maxlength="20"
+                type="text"
+            />
+        </div>
+
+        <div class="wrapper" style="display: grid; overflow: scroll;">
+            <div>
+                
+                    <div id="container" class="container">
+                        <h3 style="color: white;">
+                            Redigera trygghetszon
+                        </h3>
+                        <div id="geocoder" style="margin-bottom: 18px;"></div>
+                        
+                        <div placeholder="adress" name="addressInput">
+                            <input
+                                type="text"
+                                placeholder="Sparad adress"
+                                name="addressInput"
+                                id="addressInput"
+                                disabled
+                            />
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Trygghetszon namn"
+                            name="nameInput"
+                            id="nameInput"
+                        />
+                        <div>                          
+                            <form action="/">
+                                <select id="selectID" name="types" onchange="swapType()" style="border-radius: 10px; width: 100%; padding: 7px; margin-bottom: 18px;">
+                                    <option id="circle" value="circle">Välj cirkulär zon</option>
+                                    <option id="polygon" value="polygon">Rita egen zon</option>
+                                </select>
+                            </form>
+                        </div>
+                        <input
+                            type="number"
+                            placeholder="Radie"
+                            name="radiusInput"
+                            id="radiusInput"
+                            onchange="radiusOnchange()"
+                        />
+                        <input
+                            type="number"
+                            placeholder="Latitud"
+                            name="latitudeInput"
+                            id="latitudeInput"
+                            style="display: none;"
+                            onchange="latOnchange()"
+                        />
+                        <input
+                            type="number"
+                            placeholder="Longitud"
+                            name="longitudeInput"
+                            id="longitudeInput"
+                            style="display: none;"
+                            onchange="lngOnchange()"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Plats"
+                            name="placeInput"
+                            id="placeInput"
+                            style="display: none;"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Våning"
+                            name="floorInput"
+                            id="floorInput"
+                            style="display: none;"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Avdelning"
+                            name="departmentInput"
+                            id="departmentInput"
+                            style="display: none;"
+                        />
+                        <div 
+                            style="cursor: pointer; 
+                            padding-bottom: 5px; 
+                            text-align: center; 
+                            margin-bottom: 18px;
+                            background-color: whitesmoke; 
+                            border-radius: 12px; 
+                            border-bottom: 1px solid grey;" 
+                            onclick="cogTools()"
+                        >
+                            <img class="settings" src="images/cog-setting.png" value="1" style="bottom: -5px;" />
+                            <span style="color: black; margin-left: 20px;">Avancerade inställningar</span>
+                        </div>
+                        <form action="/index.html">
+                            <button class="cancelbtn" id="cancelbtn">
+                                Avbryt
+                            </button>
+                        </form>
+                        <button
+                            type="submit"
+                            class="registerbtn"
+                            id="registerbtn"
+                            onclick="clickUpdateGeoPoint()"
+                        >
+                            Skicka in
+                        </button>
+                    </div>
+                
+            </div>
+            <div>
+                <div id="mapContainer" class="mapContainer">
+                    <div id="map"></div>  
+                    <nav id="menupicture"></nav>
+                    <div id="distance" class="distance-container"></div> 
+                </div>  
+            </div>
+        </div>
+    </div>
+
+        <script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+        <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+        <script src="https://npmcdn.com/@turf/turf@5.1.6/turf.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+        <!-- <script type="text/javascript" src="js/ruler1.js"></script> -->
+        <script type="text/javascript" src="js/editGeoApi.js"></script>
+        <script type="text/javascript" src="js/updateGeo.js"></script>
+        
+        <!-- <script type="text/javascript" src="js/api.js"></script> -->
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>

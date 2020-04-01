@@ -1,0 +1,103 @@
+.Popdiv {
+  visibility: hidden;
+  z-index: 97;
+}
+.Popdiv .Fader {
+  background-color: #000000;
+  height: 100%;
+  left: 0;
+  opacity: 0.45;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 96;
+}
+.Popdiv .Overlay {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 98;
+}
+.Popdiv .Container {
+  background: none repeat scroll 0 0 #414f5a;
+  border-color: #414f5a #414f5a #576978 #414f5a;
+  border-radius: 8px 8px 8px 8px;
+  border-style: none;
+  border-width: 2px;
+  height: 200px;
+  left: 50%;
+  margin-left: -180px;
+  margin-top: -150px;
+  position: absolute;
+  top: 50%;
+  width: 360px;
+}
+.Popdiv .Close {
+  background-image: url("images/btnPopClose.png");
+  height: 42px;
+  left: -20px;
+  position: absolute;
+  top: -20px;
+  width: 42px;
+}
+.Popdiv .Close:hover {
+  background-position: -42px 0;
+}
+.Popdiv .Content {
+  bottom: 0;
+  display: block;
+  height: auto;
+  left: 0;
+  margin: 20px;
+  overflow: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.Popdiv .Content h1 {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.Popdiv .Content h2 {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 0;
+}
+.Popdiv .Content h3 {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px 0;
+}
+.Popdiv .Content p {
+  line-height: 15px;
+  padding-bottom: 15px;
+}
+
+.LoginSubmitBlock {
+  margin: 20px;
+}
+.LoginSubmitBlock .LoginForgotPassBlock {
+  float: left;
+}
+.LoginSubmitBlock .LoginSubmitButtonBlock {
+  width: 83%;
+  padding-top: 10px;
+  text-align: right;
+}
+.LoginSubmitBlock .LoginSubmitButton {
+  padding: 8px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #65DBDB;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 10px;
+}
+.LoginFormInput {
+  width: 80%;
+  border-radius: 20px;
+  margin: 5px;
+}

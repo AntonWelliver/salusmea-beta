@@ -1,0 +1,569 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; initial-scale=1,maximum-scale=1,user-scalable=no;"
+            charset="UTF-8"
+        />
+
+        <title>Salus mea - Larmportal</title>
+
+        <link rel="stylesheet" type="text/css" href="css/index_main3.css" />
+        <link rel="stylesheet" type="text/css" href="css/wlanMap.css" />
+        <link href="css/loginbox.css" rel="stylesheet" type="text/css" />
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript">
+            function doFilter() {
+                var text = $("#filter")
+                    .val()
+                    .toUpperCase();
+                $("form[name*='location']").hide();
+                var wlanbssids = $("input[name*='wlanbssid']");
+                wlanbssids.each(function(index) {
+                    if (
+                        $(this)
+                            .val()
+                            .toUpperCase()
+                            .startsWith(text)
+                    ) {
+                        $(this)
+                            .parents("form")
+                            .show();
+                    }
+                });
+                var wlannames = $("input[name*='wlanname']");
+                wlannames.each(function(index) {
+                    if (
+                        $(this)
+                            .val()
+                            .toUpperCase()
+                            .startsWith(text)
+                    ) {
+                        $(this)
+                            .parents("form")
+                            .show();
+                    }
+                });
+                var wlaninfos = $("input[name*='wlaninfo']");
+                wlaninfos.each(function(index) {
+                    if (
+                        $(this)
+                            .val()
+                            .toUpperCase()
+                            .startsWith(text)
+                    ) {
+                        $(this)
+                            .parents("form")
+                            .show();
+                    }
+                });
+            }
+        </script>
+        <link
+            rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+            type="text/css"
+        />
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <!-- Header -->
+            <div id="header">
+                <img id="logo" src="brand/salusmea-logo3.png" class="left" />
+                <div id="menu2">
+                    <ul>
+                        <li class="toolTip">
+                            <a href="alarm.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/alerts.png"
+                                /><span class="toolTipText"
+                                    >Hantering av larm</span
+                                >
+                                <p>Larm</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="user.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/users.png"
+                                /><span class="toolTipText"
+                                    >All användarinformation</span
+                                >
+                                <p>Användare</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="contact.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/contacts.png"
+                                /><span class="toolTipText"
+                                    >Spara och radera användare</span
+                                >
+                                <p>Kontakter</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="wlan.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/places.png"
+                                /><span class="toolTipText"
+                                    >Hantering av positionering</span
+                                >
+                                <p>Platser</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="archive.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/archive.png"
+                                /><span class="toolTipText"
+                                    >Arkiv över alla larm</span
+                                >
+                                <p>Arkiv</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="index.html" class="imageLink"
+                                ><img src="images/portalHeader/map.png" /><span
+                                    class="toolTipText"
+                                    >Hantering av trygghetszonerna</span
+                                >
+                                <p>Trygghetszoner</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="manual.html" class="imageLink"
+                                ><img src="images/portalHeader/help.png" /><span
+                                    class="toolTipText"
+                                    >Information och support för sidan</span
+                                >
+                                <p>Guide</p></a
+                            >
+                        </li>
+                        <li>
+                            <a href="login.html" class="imageLink"
+                                ><img src="images/portalHeader/signout.png" />
+                                <p>Logga ut</p></a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <input
+                    id="filter"
+                    onkeyup="doFilter()"
+                    placeholder="Sök..."
+                    maxlength="20"
+                    type="text"
+                />
+            </div>
+
+            <!-- Map -->
+            <div id="mapContainer">
+                <div id="satusdata">
+                    <div id="statusdataheader">
+                        <p class="left">Platser</p>
+                    </div>
+
+                    <div id="datadiv" class="dSettings">
+                        <div class="userinfo">
+                            <form
+                                id="setWlanListForm1151"
+                                action=""
+                                method="post"
+                                name="location"
+                            >
+                                <table
+                                    style="margin-left: auto; margin-right: auto; padding-top:16px; width: 82%;"
+                                >
+                                    <tr>
+                                        <td rowspan="5" class="rownum">1</td>
+                                        <td class="rowhdr">BSSID</td>
+                                        <td class="rowinfo">
+                                            <input
+                                                name="wlanbssid"
+                                                type="text"
+                                                placeholder="00:1a:00:a1:b1:00"
+                                                value="70:73:cb:bc:53:c0"
+                                                id="wlanbssid1151"
+                                            />
+                                        </td>
+                                        <td rowspan="5" class="rowbtn">
+                                            <div class="mapbtn" id="mapbtn">
+                                                <a id="myBtn">
+                                                    <img
+                                                        src="images/mapW.png"
+                                                        alt="show map"
+                                                    />
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <!-- The Modal -->
+                                        <div id="myModal" class="modal">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <span class="close"
+                                                        >&times;</span
+                                                    >
+                                                    <p
+                                                        style="margin-bottom: 0;"
+                                                    >
+                                                        Enter your address, the
+                                                        map is used to adjust
+                                                        the location.
+                                                    </p>
+                                                    <br />
+                                                    <!-- <label
+                                                        style="margin-top: 0; margin-bottom: 10px; margin-right: 60px;"
+                                                    >
+                                                        Adress
+                                                    </label> -->
+                                                    <div id="geocoder"></div>
+                                                    <!-- <input
+                                                        type="text"
+                                                        placeholder="Sök..."
+                                                    /> -->
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mapContainer">
+                                                        <div id="map"></div>
+                                                        <div id="menu">
+                                                            <input
+                                                                id="streets-v11"
+                                                                type="button"
+                                                                name="rtoggle"
+                                                                value="Karta"
+                                                                onclick="switchLayer()"
+                                                                checked="checked"
+                                                            />
+                                                            <input
+                                                                id="satellite-v9"
+                                                                type="button"
+                                                                name="rtoggle"
+                                                                value="Satellit"
+                                                                onclick="switchLayer()"
+                                                            />
+                                                        </div>
+                                                        <nav
+                                                            id="menupicture"
+                                                        ></nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <td rowspan="5" class="rowbtn">
+                                            <div class="savebtn2">
+                                                <a
+                                                    href='javascript:submitform(document.getElementById("setWlanListForm1151"))'
+                                                >
+                                                    <img
+                                                        src="images/save.png"
+                                                        alt="save"
+                                                    />
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td rowspan="5" class="rowbtn">
+                                            <div class="deletebtn">
+                                                <a
+                                                    href="javascript:deleteWlan(1151);"
+                                                >
+                                                    <img
+                                                        src="images/delete.png"
+                                                        alt="save icon"
+                                                    />
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="rowhdr">Beskrivning</td>
+                                        <td class="rowinfo">
+                                            <input
+                                                name="wlanname"
+                                                type="text"
+                                                placeholder="Kontoret"
+                                                value="Framtidens företag"
+                                                id="wlanname1151"
+                                                maxlength="60"
+                                                readonly
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 40px;">
+                                        <td class="rowhdr">Våningsplan</td>
+                                        <td class="rowinfo">
+                                            <select
+                                                name="department"
+                                                id="department1151"
+                                                class="department"
+                                                style="border-radius: 5px;"
+                                                title="67b8c02e-578f-41aa-b836-a67899a0b93b"
+                                                onchange="departmentChanged(1151);"
+                                            >
+                                                <option
+                                                    value="0"
+                                                    selected
+                                                    disabled
+                                                ></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <input
+                                        type="hidden"
+                                        name="id"
+                                        value="1151"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="action"
+                                        id="action1151"
+                                        value="savewlan"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="floor"
+                                        id="floor1151"
+                                        value="14"
+                                    />
+                                    <tr>
+                                        <td class="rowhdr">Adress</td>
+                                        <td class="rowinfo">
+                                            <input
+                                                name="wlaninfo"
+                                                type="text"
+                                                id="wlaninfo1151"
+                                                placeholder="Vägen 1, Stad"
+                                                value="Vera Sandbergs Allé 5B, 411 33 Göteborg, Sverige"
+                                                readonly
+                                            />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="userinfo">
+                            <form
+                                id="setWlanListForm1152"
+                                action=""
+                                method="post"
+                                name="location"
+                            >
+                                <table
+                                    style="margin-left: auto; margin-right: auto; padding-top:16px; width: 82%;"
+                                >
+                                    <tr>
+                                        <td rowspan="5" class="rownum">2</td>
+                                        <td class="rowhdr">BSSID</td>
+                                        <td class="rowinfo">
+                                            <input
+                                                name="wlanbssid"
+                                                type="text"
+                                                placeholder="00:1a:00:a1:b1:00"
+                                                value="50:53:cb:bc:23:c0"
+                                                id="wlanbssid1152"
+                                            />
+                                        </td>
+                                        <td rowspan="5" class="rowbtn">
+                                            <div class="mapbtn" id="mapbtn">
+                                                <a id="myBtn">
+                                                    <img
+                                                        src="images/mapW.png"
+                                                        alt="show map"
+                                                    />
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <!-- The Modal -->
+                                        <div id="myModal" class="modal">
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <span class="close"
+                                                        >&times;</span
+                                                    >
+                                                    <p
+                                                        style="margin-bottom: 0;"
+                                                    >
+                                                        Enter your address, the
+                                                        map is used to adjust
+                                                        the location.
+                                                    </p>
+                                                    <br />
+                                                    <!-- <label
+                                                        style="margin-top: 0; margin-bottom: 10px; margin-right: 60px;"
+                                                    >
+                                                        Adress
+                                                    </label> -->
+                                                    <div id="geocoder"></div>
+                                                    <!-- <input
+                                                        type="text"
+                                                        placeholder="Sök..."
+                                                    /> -->
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mapContainer">
+                                                        <div id="map"></div>
+                                                        <div id="menu">
+                                                            <input
+                                                                id="streets-v11"
+                                                                type="button"
+                                                                name="rtoggle"
+                                                                value="Karta"
+                                                                onclick="switchLayer()"
+                                                                checked="checked"
+                                                            />
+                                                            <input
+                                                                id="satellite-v9"
+                                                                type="button"
+                                                                name="rtoggle"
+                                                                value="Satellit"
+                                                                onclick="switchLayer()"
+                                                            />
+                                                        </div>
+                                                        <nav
+                                                            id="menupicture"
+                                                        ></nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <td rowspan="5" class="rowbtn">
+                                            <div class="savebtn2">
+                                                <a
+                                                    href='javascript:submitform(document.getElementById("setWlanListForm1152"))'
+                                                >
+                                                    <img
+                                                        src="images/save.png"
+                                                        alt="save"
+                                                    />
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td rowspan="5" class="rowbtn">
+                                            <div class="deletebtn">
+                                                <a
+                                                    href="javascript:deleteWlan(1152);"
+                                                >
+                                                    <img
+                                                        src="images/delete.png"
+                                                        alt="save icon"
+                                                    />
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="rowhdr">Beskrivning</td>
+                                        <td class="rowinfo">
+                                            <input
+                                                name="wlanname"
+                                                type="text"
+                                                placeholder="Kontoret"
+                                                value="Vara Kommun"
+                                                id="wlanname1152"
+                                                maxlength="60"
+                                                readonly
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 40px;">
+                                        <td class="rowhdr">Våningsplan</td>
+                                        <td class="rowinfo">
+                                            <select
+                                                name="department"
+                                                id="department1152"
+                                                class="department"
+                                                style="border-radius: 5px;"
+                                                title="67b8c02e-578f-41aa-b836-a67899a0b93b"
+                                                onchange="departmentChanged(1152);"
+                                            >
+                                                <option
+                                                    value="0"
+                                                    selected
+                                                    disabled
+                                                ></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <input
+                                        type="hidden"
+                                        name="id"
+                                        value="1152"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="action"
+                                        id="action1152"
+                                        value="savewlan"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="floor"
+                                        id="floor1152"
+                                        value="14"
+                                    />
+                                    <tr>
+                                        <td class="rowhdr">Adress</td>
+                                        <td class="rowinfo">
+                                            <input
+                                                name="wlaninfo"
+                                                type="text"
+                                                id="wlaninfo1152"
+                                                placeholder="Vägen 1, Stad"
+                                                value="Vara, Västra Götalands län, Sverige"
+                                                readonly
+                                            />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            };
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        </script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
+    </body>
+</html>

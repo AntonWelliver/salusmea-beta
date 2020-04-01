@@ -1,0 +1,391 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; initial-scale=1,maximum-scale=1,user-scalable=no;"
+            charset="UTF-8"
+        />
+
+        <title>Salus mea - Larmportal</title>
+
+        <link rel="stylesheet" type="text/css" href="css/index_main3.css" />
+        <link rel="stylesheet" type="text/css" href="css/alarm.css" />
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript">
+            function doFilter() {
+                var text = $("#filter")
+                    .val()
+                    .toUpperCase();
+                $("div[name*='alarm']").hide();
+                var usernames = $("li[name*='username']");
+                usernames.each(function(index) {
+                    if (
+                        $(this)
+                            .text()
+                            .toUpperCase()
+                            .startsWith(text)
+                    ) {
+                        $(this)
+                            .parents("div[name*='alarm']")
+                            .show();
+                    }
+                });
+                var userdates = $("li[name*='userdate']");
+                userdates.each(function(index) {
+                    if (
+                        $(this)
+                            .html()
+                            .toUpperCase()
+                            .startsWith(text)
+                    ) {
+                        $(this)
+                            .parents("div[name*='alarm']")
+                            .show();
+                    }
+                });
+               /*  var userphones = $("li[name*='userphone']");
+                userphones.each(function(index) {
+                    if (
+                        $(this)
+                            .html()
+                            .toUpperCase()
+                            .startsWith(text)
+                    ) {
+                        $(this)
+                            .parents("div[name*='alarm']")
+                            .show();
+                    }
+                }); */
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <!-- Header -->
+            <div id="header">
+                <a href="http://www.salusmea.com"
+                    ><img id="logo" src="brand/salusmea-logo3.png" class="left"
+                /></a>
+                <div id="menu2">
+                    <ul>
+                        <li class="toolTip">
+                            <a href="alarm.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/alerts.png"
+                                /><span class="toolTipText"
+                                    >Hantering av larm</span
+                                >
+                                <p>Larm</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="user.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/users.png"
+                                /><span class="toolTipText"
+                                    >All användarinformation</span
+                                >
+                                <p>Användare</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="contact.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/contacts.png"
+                                /><span class="toolTipText"
+                                    >Spara och radera användare</span
+                                >
+                                <p>Kontakter</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="wlan.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/places.png"
+                                /><span class="toolTipText"
+                                    >Hantering av positionering</span
+                                >
+                                <p>Platser</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="archive.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/archive.png"
+                                /><span class="toolTipText"
+                                    >Arkiv över alla larm</span
+                                >
+                                <p>Arkiv</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="index.html" class="imageLink"
+                                ><img src="images/portalHeader/map.png" /><span
+                                    class="toolTipText"
+                                    >Hantering av trygghetszonerna</span
+                                >
+                                <p>Trygghetszoner</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="manual.html" class="imageLink"
+                                ><img src="images/portalHeader/help.png" /><span
+                                    class="toolTipText"
+                                    >Information och support för sidan</span
+                                >
+                                <p>Guide</p></a
+                            >
+                        </li>
+                        <li>
+                            <a href="login.html" class="imageLink"
+                                ><img src="images/portalHeader/signout.png" />
+                                <p>Logga ut</p></a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <input
+                    type="text"
+                    id="filter"
+                    onkeyup="doFilter()"
+                    placeholder="Sök..."
+                    maxlength="20"
+                />
+            </div>
+
+            <!-- Sidebar -->
+
+            <div id="sidebar">
+                <div id="sidebarheader">
+                    <p class="left">Larm</p>
+                    <a href="#" onclick="toggleSound();"
+                        ><img id="sound" src="images/sound_on.png" class="right"
+                    /></a>
+                </div>
+
+                <div id="alerts" name="alerts">
+                    <script type="text/javascript">
+                        lastAlert = 24979833602514314471;
+                    </script>
+                    <div
+                        class="alarm"
+                        name="alarm"
+                        id="alert12888981454269784372"
+                        onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
+                        style="cursor:pointer"
+                    >
+                        <div id="status" class="closed"></div>
+                        <ul class="statusul">
+                            <li class="closed" name="alarmStatus">Stängd</li>
+                            <li class="statusulli" name="userdate">01/01 12:12</li>
+                            <li class="statusulli" name="username">Emanuel</li>
+                            <li class="statusulli" name="userphone">
+                                +46736881065
+                            </li>
+                            <li class="statusulli" name="usercompany">
+                                Salus mea användare
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class="alarm"
+                        name="alarm"
+                        id="alert12888981454269784372"
+                        onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
+                        style="cursor:pointer"
+                    >
+                        <div id="status" class="closed"></div>
+                        <ul class="statusul">
+                            <li class="closed" name="alarmStatus">Stängd</li>
+                            <li class="statusulli" name="userdate">26/01 14:17</li>
+                            <li class="statusulli" name="username">Calle</li>
+                            <li class="statusulli" name="userphone">
+                                +46791404040
+                            </li>
+                            <li class="statusulli" name="usercompany">
+                                Salus mea användare
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class="alarm"
+                        name="alarm"
+                        id="alert12888981454269784372"
+                        onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
+                        style="cursor:pointer"
+                    >
+                        <div id="status" class="closed"></div>
+                        <ul class="statusul">
+                            <li class="closed" name="alarmStatus">Stängd</li>
+                            <li class="statusulli" name="userdate">16/02 15:15</li>
+                            <li class="statusulli" name="username">Lars</li>
+                            <li class="statusulli" name="userphone">
+                                +46701202020
+                            </li>
+                            <li class="statusulli" name="usercompany">
+                                Salus mea användare
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class="alarm"
+                        name="alarm"
+                        id="alert12888981454269784372"
+                        onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
+                        style="cursor:pointer"
+                    >
+                        <div id="status" class="closed"></div>
+                        <ul class="statusul">
+                            <li class="closed" name="alarmStatus">Stängd</li>
+                            <li class="statusulli" name="userdate">01/03 18:18</li>
+                            <li class="statusulli" name="username">Anton</li>
+                            <li class="statusulli" name="userphone">
+                                +46707301293
+                            </li>
+                            <li class="statusulli" name="usercompany">
+                                Salus mea användare
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div id="mapContainer" style="background-color:#0f1f2e">
+                <div id="satusdata">
+                    <div
+                        id="statusdataheader2"
+                        style="padding-top: 8px; padding-bottom: 5px; font-weight: bold; font-size: 14px;"
+                    >
+                        <div
+                            id="alertbuttons"
+                            style="float:right;padding-left:10px;line-height:50px;"
+                        >
+                            <button
+                                id="acceptbutton"
+                                style="display:none;height:50px;"
+                                class="acceptbutton"
+                                onclick="setAlertAccepted()"
+                            >
+                                Acceptera
+                            </button>
+                            <button
+                                id="closebutton"
+                                style="display:none;height:50px;"
+                                class="closebutton"
+                                onclick="setAlertClosed()"
+                            >
+                                Stoppa
+                            </button>
+                            <img
+                                id="archivebutton"
+                                style="display:none;margin-top:10px;margin-right:10px"
+                                title="Archive"
+                                onclick="setArchived()"
+								/>
+							</div>
+							<!-- src="images/archive2.png" -->
+                        <div class="info" style="color: whitesmoke;">
+                            Stängd: <span id="alertend"></span><br />
+                            Stängd av: <span id="alertclosedby"></span>
+                        </div>
+                        <div class="info" style="color:whitesmoke">
+                            Accepterad: <span id="alertacceptedtime"></span
+                            ><br />
+                            Accepterad av: <span id="alertaccepters"></span>
+                        </div>
+                        <div>
+                            <div id="alertactive" style="display:none">
+                                <div id="alertactivetext"></div>
+                            </div>
+                            <div id="alertaccepted" style="display:none">
+                                <div id="alertacceptedtext"></div>
+                            </div>
+                            <div id="alertclosed" style="display:none">
+                                <div id="alertclosedtext"></div>
+                            </div>
+                            <div id="noposition" style="display:none">
+                                <p>Ingen kontakt med telefon</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="datadiv" id="alertinfo">
+                        <div
+                            id="personcontainer"
+                            style="font-size: 13px; font-weight: bold; padding-top: 5px;"
+                        >
+                            <ul>
+                                <li>
+                                    Adress: <span id="alertinfoaddress"></span>
+                                </li>
+                                <li>Plats: <span id="alertinfowifi"></span></li>
+                                <li>
+                                    Larmtyp: <span id="alertinfosource"></span>
+                                </li>
+                                <li>
+                                    Precision:
+                                    <span id="alertinfoaccuracy"></span>
+                                </li>
+                                <li>
+                                    Batterinivå:
+                                    <span id="alertinfobattery"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            class="right"
+                            id="chatcontainer"
+                            style="width: 350px; background:#081420; height: 110px; padding: 5px; border: 1px solid #495966; border-radius: 5px; margin-right: 10px;"
+                        >
+                            <div
+                                id="chatmessages"
+                                style="overflow-y: auto; height: 70px; font-size: 16px; line-height: 13px; margin-bottom: 5px;"
+                            ></div>
+                            <input
+                                type="text"
+                                placeholder="Meddelande..."
+                                style="width: 256px; margin-left: 11px; height: 29px; border-radius: 5px; padding-left: 10px;"
+                                id="chat_message"
+                            />
+                            <input
+                                type="button"
+                                value="Skicka"
+                                style="width: 60px; float: right; height: 29px; margin-right: 11px;"
+                                onclick="sendMessage()"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="mapContainer1">
+					<div id="map1"></div>
+					<div id="menu3">
+						<input
+							id="streets-v11"
+							type="button"
+							name="rtoggle"
+							value="Karta"
+							onclick="switchLayer()"
+							checked="checked"
+						/>
+						<input
+							id="satellite-v9"
+							type="button"
+							name="rtoggle"
+							value="Satellit"
+							onclick="switchLayer()"
+						/>
+					</div>
+					<nav id="menupicture"></nav>
+            	</div>
+        </div>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+        <script type="text/javascript" src="js/alarmMap.js"></script>
+    </body>
+</html>

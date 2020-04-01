@@ -1,0 +1,184 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <title>Salus mea - Larmportal</title>
+
+        <link rel="stylesheet" type="text/css" href="css/archiveMenu.css" />
+        <link rel="stylesheet" type="text/css" href="css/index_main3.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
+        />
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <!-- Header -->
+            <div id="header">
+                <img id="logo" src="brand/salusmea-logo3.png" class="left" />
+                <div id="menu2">
+                    <ul>
+                        <li class="toolTip">
+                            <a href="alarm.html" class="imageLink"
+                                ><img src="images/portalHeader/alerts.png" />
+                                <span class="toolTipText"
+                                    >Hantering av larm</span
+                                >
+                                <p>Larm</p>
+                            </a>
+                        </li>
+                        <li class="toolTip">
+                            <a href="user.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/users.png"
+                                /><span class="toolTipText"
+                                    >All användarinformation</span
+                                >
+                                <p>Användare</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="contact.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/contacts.png"
+                                /><span class="toolTipText"
+                                    >Spara och radera användare</span
+                                >
+                                <p>Kontakter</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="wlan.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/places.png"
+                                /><span class="toolTipText"
+                                    >Hantering av positionering</span
+                                >
+                                <p>Platser</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="archive.html" class="imageLink"
+                                ><img
+                                    src="images/portalHeader/archive.png"
+                                /><span class="toolTipText">
+                                    Arkiv över alla larm</span
+                                >
+                                <p>Arkiv</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="index.html" class="imageLink"
+                                ><img src="images/portalHeader/map.png" /><span
+                                    class="toolTipText"
+                                    >Hantering av trygghetszonerna</span
+                                >
+                                <p>Trygghetszoner</p></a
+                            >
+                        </li>
+                        <li class="toolTip">
+                            <a href="manual.html" class="imageLink"
+                                ><img src="images/portalHeader/help.png" /><span
+                                    class="toolTipText"
+                                    >Information och support för sidan</span
+                                >
+                                <p>Guide</p></a
+                            >
+                        </li>
+                        <li>
+                            <a href="login.html" class="imageLink"
+                                ><img src="images/portalHeader/signout.png" />
+                                <p>Logga ut</p></a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <input
+                    id="filter"
+                    placeholder="Sök..."
+                    maxlength="20"
+                    type="text"
+                />
+            </div>
+
+            <div id="mapContainer">
+                <div id="satusdata">
+                    <div id="statusdataheader">
+                        <p class="left">Arkiv</p>
+                    </div>
+                    <div id="datadiv" class="dSettings">
+                        <table id="archiveFilterTable">
+                            <tr>
+                                <th onclick="sortTable(0)">
+                                    Datum
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(1)">
+                                    Namn
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(2)">
+                                    Användar-ID
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(3)">
+                                    Telefon nr
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(4)">
+                                    Adress
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(5)">
+                                    Larmtyp
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(6)">
+                                    Företag
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>2020-01-01 23:00</td>
+                                <td>Lina</td>
+                                <td>SMUU5769</td>
+                                <td>+46703120666</td>
+                                <td>Grusvägen 1</td>
+                                <td>Rörelselarm</td>
+                                <td>Salus Mea</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/archive.js"></script>
+    </body>
+</html>

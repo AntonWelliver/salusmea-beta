@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: 100px;
+    border-radius: 12px;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+#map1 {
+    position: absolute;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    width: 60%;
+    height: 80%;
+}
+
+.mapContainer1 {
+    position: relative;
+    margin-right: 12px;
+    height: 60%;
+}
+
+.savebtn2 {
+    margin-left: 30px;
+}
+
+.deletebtn {
+    margin-left: 30px;
+}
+
+.mapbtn {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+#menu {
+    position: absolute;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#menu3 {
+    position: absolute;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#streets-v11 {
+    border-radius: 0;
+    width: 60px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#satellite-v9 {
+    border-radius: 0;
+    width: 60px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #121e2d;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #495966;
+    border-radius: 12px;
+    width: 60%;
+    height: 450px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #121e2d;
+    color: white;
+    border-radius: 12px;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    background-color: #121e2d;
+    color: white;
+    border-radius: 12px;
+}

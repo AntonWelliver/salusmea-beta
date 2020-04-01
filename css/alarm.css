@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: 100px;
+    border-radius: 12px;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+#map1 {
+    position: absolute;
+    transition: all 0.3s;
+    width: 100%;
+    height: 100%;
+}
+
+.mapContainer1 {
+    position: relative;
+    margin-right: 12px;
+    height: 48%;
+    width: 60%;
+}
+
+.savebtn2 {
+    margin-left: 30px;
+}
+
+.deletebtn {
+    margin-left: 30px;
+}
+
+.mapbtn {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+#menu {
+    position: absolute;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#menu3 {
+    position: absolute;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#streets-v11 {
+    border-radius: 0;
+    width: 60px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+#satellite-v9 {
+    border-radius: 0;
+    width: 60px;
+    cursor: pointer;
+    margin-top: 5px;
+}

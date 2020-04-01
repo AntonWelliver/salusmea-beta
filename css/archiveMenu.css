@@ -1,0 +1,34 @@
+#archiveFilterTable {
+    border: 1px solid #495966;
+    color: white;
+    border-radius: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #121e2d;
+    background-size: 10px 10px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+th {
+    cursor: pointer;
+}
+
+tr {
+    border: solid grey;
+    border-width: 1px 0;
+    background-color: #081420;
+}
+
+tr:first-child {
+    border-top: none;
+}
+tr:last-child {
+    border-bottom: none;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    /* border-radius: 12px; */
+}

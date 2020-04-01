@@ -1,0 +1,41 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.cWrapper_faq {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    background-image: url(images/manual.png);
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+}
+
+#contentFaq {
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.bT {
+    color: red;
+    font-size: 1.5em;
+    padding-top: 20px;
+}
+
+.bTB {
+    font-size: 2em;
+    color: red;
+    padding-top: 40px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.dataFaq {
+    padding-bottom: 100px;
+    padding-top: 160px !important;
+}
