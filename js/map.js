@@ -64,3 +64,5 @@ var geocoder = new MapboxGeocoder({
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 map.addControl(new mapboxgl.FullscreenControl());
 map.addControl(new mapboxgl.NavigationControl());
+
+//This mapbox is for page Places(platser) The icon for showing a modul(Karta). Replace with googlemap 

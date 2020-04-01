@@ -515,6 +515,7 @@ div.accepted {
     border-radius: 5px;
     border: 1px solid #495966;
     background-color: #081420;
+   
 }
 
 #contactgroupheader input {
@@ -523,6 +524,8 @@ div.accepted {
     width: 200px;
     border-radius: 5px;
     margin-left: 20px;
+    margin-top: 3px;
+    
 }
 
 #contactgroupheader select {
@@ -533,6 +536,8 @@ div.accepted {
     moz-border-radius: 5px;
     border-radius: 5px;
     margin-right: 20px;
+    margin-left: 41px;
+    margin-bottom: 10px;
 }
 
 #contactgroupheader div {

@@ -10,24 +10,6 @@ var map = new mapboxgl.Map({
 
 });
 
-/* Resize function from map.js */
-/* var biggerSmaller = '';
-
-map.on('load', function () {
-    var mapCanvas = document.getElementsByClassName('mapboxgl-canvas')[0];
-    var mapDiv = document.getElementById('map');
-    var mapButton = document.getElementById('mapbtn');
-
-    mapButton.onclick = function () {
-        if (biggerSmaller !== 'smaller') {
-            mapDiv.style.width = '100%';
-            mapCanvas.style.width = '100%';
-            biggerSmaller = 'smaller';
-        }
-        map.resize();
-    };
-}); */
-
 var layerList = document.getElementById('menu3');
 var inputs = layerList.getElementsByTagName('input');
 
@@ -42,3 +24,5 @@ for (var i = 0; i < inputs.length; i++) {
 
 map.addControl(new mapboxgl.FullscreenControl());
 map.addControl(new mapboxgl.NavigationControl());
+
+//This is for AlarmPage Mapbox. just for showing a map. Replace with Googlesmap

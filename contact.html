@@ -74,12 +74,12 @@
 			<img id="logo" src="brand/salusmea-logo3.png" class="left">
 			<div id="menu2">
 				<ul>
-					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Hantering av larm</span><p>Larm</p></a></li>
-					<li class="toolTip"><a href="user.html" class="imageLink"><img src="images/portalHeader/users.png"/><span class="toolTipText">All användarinformation</span><p>Användare</p></a></li>
-					<li class="toolTip"><a href="contact.html" class="imageLink"><img src="images/portalHeader/contacts.png"/><span class="toolTipText">Spara och radera användare</span><p>Kontakter</p></a></li>
-					<li class="toolTip"><a href="wlan.html" class="imageLink"><img src="images/portalHeader/places.png" /><span class="toolTipText">Hantering av positionering</span><p>Platser</p></a></li>
-					<li class="toolTip"><a href="archive.html" class="imageLink"><img src="images/portalHeader/archive.png" /><span class="toolTipText">Arkiv över alla larm</span><p>Arkiv</p></a></li>
-					<li class="toolTip"><a href="manual.html" class="imageLink"><img src="images/portalHeader/help.png"/><span class="toolTipText">Information och support för sidan</span><p>Guide</p></a></li>
+					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Aktiva larm</span><p>Larm</p></a></li>
+					<li class="toolTip"><a href="user.html" class="imageLink"><img src="images/portalHeader/users.png"/><span class="toolTipText">Lägg till och ändra användare</span><p>Användare</p></a></li>
+					<li class="toolTip"><a href="contact.html" class="imageLink"><img src="images/portalHeader/contacts.png"/><span class="toolTipText">Lägg till och ändra larmmottagare</span><p>Kontakter</p></a></li>
+					<li class="toolTip"><a href="wlan.html" class="imageLink"><img src="images/portalHeader/places.png" /><span class="toolTipText">Lägg till och ändra inomhuspositionering</span><p>Platser</p></a></li>
+					<li class="toolTip"><a href="archive.html" class="imageLink"><img src="images/portalHeader/archive.png" /><span class="toolTipText">Sök i larmhistorik</span><p>Arkiv</p></a></li>
+					<li class="toolTip"><a href="manual.html" class="imageLink"><img src="images/portalHeader/help.png"/><span class="toolTipText">Information om hur du använder larmportalen</span><p>Guide</p></a></li>
 					<li><a href='login.html' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Logga ut</p></a></li>
 				</ul>	
 			</div>
@@ -100,10 +100,12 @@
 							<option value="0" selected>Standard</option>
 							<option value='1'>Emanuel</option>
 						</select>
-						Eller
+						
+						<input type="button" value="Radera" style="background:#e74c3c; border: 1px solid #000000; width: 100px; color:black; margin-left: 30px;" onclick="javascript:deleteGroup()" disabled  />
+						<br>
+						Skapa en Grupp:
 						<input name="groupname" type="text" placeholder="Skapa Ny Grupp"></input>
-						<input type="submit" value="Lägg till" style="background:#65DBDB; border: 1px solid #000000; width: 100px; margin-left: 620px;"/>
-						<input type="button" value="Radera" style="background:#B2B2B2; border: 1px solid #000000; width: 100px; color:black; margin-left: 60px;" onclick="javascript:deleteGroup()" disabled  />
+						<input type="submit" value="Lägg till" style="background:#65DBDB; border: 1px solid #000000; width: 100px; margin-left: 50px;"/>
 					</form>
 				</div>
 
@@ -120,15 +122,17 @@
 								<td rowspan='3' class='rowbtn'>
 									<div class='savebtn2'>
 										<a href='javascript:checkNumber("664", document.getElementById("setContactForm664"))'>
-											<img src='images/save.png' alt='save icon'/>
+											<img src='images/save.png' alt='save icon' style="height: 45px;"/>
 										</a>
+										<span style="color: whitesmoke; display: block;">Spara</span>
 									</div>
 								</td>
 								<td rowspan='3' class='rowbtn'>
 									<div class='savebtn2'>
 										<a href='javascript:deleteContact(664);'>
-											<img src='images/delete.png' alt='delete icon'/>
+											<img src='images/delete.png' alt='delete icon' style="height: 45px;"/>
 										</a>
+										<span style="color: whitesmoke; display: block;">Radera</span>
 									</div>
 								</td>
 							</tr>
@@ -156,15 +160,17 @@
 								<td rowspan='3' class='rowbtn'>
 									<div class='savebtn2'>
 										<a href='javascript:checkNumber("664", document.getElementById("setContactForm664"))'>
-											<img src='images/save.png' alt='save icon'/>
+											<img src='images/save.png' alt='save icon' style="height: 45px;"/>
 										</a>
+										<span style="color: whitesmoke; display: block;">Spara</span>
 									</div>
 								</td>
 								<td rowspan='3' class='rowbtn'>
 									<div class='savebtn2'>
 										<a href='javascript:deleteContact(664);'>
-											<img src='images/delete.png' alt='delete icon'/>
+											<img src='images/delete.png' alt='delete icon' style="height: 45px;"/>
 										</a>
+										<span style="color: whitesmoke; display: block;">Radera</span>
 									</div>
 								</td>
 							</tr>
